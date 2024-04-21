@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { DashboardModule } from './layouts/dashboard/dashboard.module';
 
+
 @NgModule({
   declarations: [
     AppComponent

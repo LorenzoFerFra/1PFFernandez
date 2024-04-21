@@ -1,1 +1,22 @@
-<p>dashboard works!</p>
+<mat-drawer-container class="example-container" autosize>
+  <!--SIDEBAR, abierto/cerrado en escritorio/mobile, side/over en escritorio/mobile-->
+    <mat-drawer [opened]="isMobile() ? 'false' : 'true'" #drawer class="example-sidenav" [mode]="isMobile() ? 'over' : 'side'">
+      <p>Auto-resizing sidenav</p>
+      @if (showFiller) {
+        <p>Lorem, ipsum dolor sit amet consectetur.</p>
+      }
+      <button (click)="showFiller = !showFiller" mat-raised-button>
+        Toggle extra text
+      </button>
+    </mat-drawer>
+  
+    <div class="example-sidenav-content">
+      <mat-toolbar color="primary" colo>
+        <button (click)="drawer.toggle()"mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+   <mat-icon>menu</mat-icon>
+ </button>
+        <span>Datos smash</span>
+      </mat-toolbar>
+    </div>
+
+  </mat-drawer-container>

@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
-
+  showFiller = false;
+  
+  isMobile(): boolean{
+    return window.innerWidth <= 690;
+  }
 }
