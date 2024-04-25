@@ -12,13 +12,14 @@ import { IUser } from '../../models';
 export class UsersDialogComponent {
   usuariosForm: FormGroup;
   
-  constructor(private fb: FormBuilder, private matDialogRef: MatDialogRef<UsersDialogComponent>){
+  constructor(private fb: FormBuilder, private matDialogRef: MatDialogRef<UsersDialogComponent>, @Inject(MAT_DIALOG_DATA) private editUser?: IUser){
+    console.log(editUser)
     console.log("constructor")
     this.usuariosForm = this.fb.group({
       name: ['', [
         Validators.required,
         Validators.pattern('^[a-zA-ZÁÉÍÓÚáéíóúñÑ]+$'),
-        Validators.minLength(6),
+        Validators.minLength(4),
         Validators.maxLength(14),
       ]], 
       weight: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
@@ -27,6 +28,9 @@ export class UsersDialogComponent {
 
 
     })
+    if(editUser){
+      this.usuariosForm.patchValue(editUser)
+    }
   }
   guardarUsuario(): void{
     if(this.usuariosForm.invalid){
