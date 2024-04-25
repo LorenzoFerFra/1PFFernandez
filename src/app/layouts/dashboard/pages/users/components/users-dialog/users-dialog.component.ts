@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Inject} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
+import { IUser } from '../../models';
 
 @Component({
   selector: 'app-users-dialog',
@@ -11,7 +12,7 @@ import Swal from 'sweetalert2';
 export class UsersDialogComponent {
   usuariosForm: FormGroup;
   
-  constructor(private fb: FormBuilder, private matDialogRef: MatDialogRef<UsersDialogComponent>  ){
+  constructor(private fb: FormBuilder, private matDialogRef: MatDialogRef<UsersDialogComponent>){
     console.log("constructor")
     this.usuariosForm = this.fb.group({
       name: ['', [
@@ -22,13 +23,14 @@ export class UsersDialogComponent {
       ]], 
       weight: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
       email: ['', [ Validators.required,Validators.pattern('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}'),]],
+      role: ['USER',[Validators.required]],
+
 
     })
   }
   guardarUsuario(): void{
     if(this.usuariosForm.invalid){
       this.usuariosForm.markAllAsTouched();
-
     }
     else{
       this.matDialogRef.close(this.usuariosForm.value);

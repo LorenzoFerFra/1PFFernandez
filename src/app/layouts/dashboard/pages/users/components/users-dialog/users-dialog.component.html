@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>asdasd</h2>
+<h2 mat-dialog-title>Crear usuario nuevo</h2>
 <div mat-dialog-content>
     <!-- contenido de genshin impact -->
     <form [formGroup]="usuariosForm">
@@ -24,6 +24,15 @@
                 <mat-form-field style="padding: 1rem" class="w-100"appearance="outline">
                     <mat-label>Email</mat-label>
                     <input formControlName="email" matInput />
+                </mat-form-field>
+            </div>
+            <div class="col-3">
+                <mat-form-field style="padding: 1rem" class="w-100"appearance="outline">
+                    <mat-label>Role</mat-label>
+                    <mat-select formControlName="role" disableRipple>
+                      <mat-option value="USER">Usuario</mat-option>
+                      <mat-option value="ADMIN">Admin</mat-option>
+                    </mat-select>
                 </mat-form-field>
             </div>
         </div>

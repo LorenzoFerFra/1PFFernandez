@@ -1,7 +1,11 @@
+export type UserRole = 'ADMIN' | 'USER';
+ 
+
 export interface IUser {
     id: number;
     name: string;
-    email: string;
     weight: number;
+    email: string;
+    role: UserRole;
     createdAt: Date;
   }
