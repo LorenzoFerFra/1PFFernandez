@@ -17,8 +17,6 @@ import { SharedModule } from '../../../../shared/shared.module';
     CommonModule,
     UsersRoutingModule,
     SharedModule,
-    
-
   ],
   exports: [
     UsersComponent

@@ -13,8 +13,6 @@ export class UsersDialogComponent {
   usuariosForm: FormGroup;
   
   constructor(private fb: FormBuilder, private matDialogRef: MatDialogRef<UsersDialogComponent>, @Inject(MAT_DIALOG_DATA) private editUser?: IUser){
-    console.log(editUser)
-    console.log("constructor")
     this.usuariosForm = this.fb.group({
       name: ['', [
         Validators.required,
@@ -32,6 +30,21 @@ export class UsersDialogComponent {
       this.usuariosForm.patchValue(editUser)
     }
   }
+  get nameGet() {
+    return this.usuariosForm.get('name');
+  }
+  
+  get weightGet() {
+    return this.usuariosForm.get('weight');
+  }
+
+
+  get emailGet() {
+    return this.usuariosForm.get('email');
+  }
+
+
+
   guardarUsuario(): void{
     if(this.usuariosForm.invalid){
       this.usuariosForm.markAllAsTouched();

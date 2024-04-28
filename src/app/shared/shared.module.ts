@@ -8,16 +8,20 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
+import { PipesModule } from '../layouts/dashboard/pages/pipes/pipes.module';
+import { FormFieldValidationErrorsPipe } from './pipes/form-field-validation-errors.pipe';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    FormFieldValidationErrorsPipe
+  ],
   imports: [
     CommonModule
   ],
   exports: [
-    MatTableModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule,MatSelectModule,MatIconModule,
+    MatTableModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule,MatSelectModule,MatIconModule,FormFieldValidationErrorsPipe,
   ],
 })
 export class SharedModule { }
