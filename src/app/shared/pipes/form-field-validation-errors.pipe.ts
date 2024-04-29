@@ -7,8 +7,6 @@ import { ValidationErrors } from '@angular/forms';
 export class FormFieldValidationErrorsPipe implements PipeTransform {
 
   transform(value: ValidationErrors | undefined | null, ...args: unknown[]): unknown {
-    console.log(value);
-    console.log(args);
     if (value) {
       let messages: string[] = [];
       for (const key in value) {

@@ -19,8 +19,14 @@ export class UsersDialogComponent {
         Validators.pattern('^[a-zA-ZÁÉÍÓÚáéíóúñÑ]+$'),
         Validators.minLength(4),
         Validators.maxLength(14),
-      ]], 
+      ]],
       weight: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
+      lastName: ['', [
+        Validators.required,
+        Validators.pattern('^[a-zA-ZÁÉÍÓÚáéíóúñÑ]+$'),
+        Validators.minLength(4),
+        Validators.maxLength(14),
+      ]],
       email: ['', [ Validators.required,Validators.pattern('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}'),]],
       role: ['USER',[Validators.required]],
 
@@ -31,18 +37,27 @@ export class UsersDialogComponent {
     }
   }
   get nameGet() {
+    console.log("aaa")
     return this.usuariosForm.get('name');
   }
   
   get weightGet() {
     return this.usuariosForm.get('weight');
   }
-
-
   get emailGet() {
     return this.usuariosForm.get('email');
   }
+  get lastNameGet(){
+    return this.usuariosForm.get('lastName');
+  }
+  get fullNameGet(){
+    let n = this.usuariosForm.get('name');
+    let l = this.usuariosForm.get('lastName');
+    console.log(n)
+    let fn: string[] = [];
+    return fn;
 
+  }
 
 
   guardarUsuario(): void{

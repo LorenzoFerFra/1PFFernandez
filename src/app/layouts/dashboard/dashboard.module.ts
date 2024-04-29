@@ -9,6 +9,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { UsersModule } from './pages/users/users.module';
 import { SharedModule } from '../../shared/shared.module';
+import { PipesModule } from './pages/pipes/pipes.module';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { SharedModule } from '../../shared/shared.module';
     MatIconModule,
     MatButtonModule,
     UsersModule,
-    SharedModule
+    SharedModule,
+    PipesModule,
+    MatListModule
   ],
   exports: [
     DashboardComponent

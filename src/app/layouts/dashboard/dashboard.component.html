@@ -6,13 +6,11 @@
     class="example-sidenav"
     [mode]="isMobile() ? 'over' : 'side'"
   >
-    <p>Navegacion</p>
-    @if (showFiller) {
-    <p>vacio, como el corazon de obito</p>
-    }
-    <button (click)="showFiller = !showFiller" mat-raised-button>
-      Toggle extra text
-    </button>
+  <mat-list role="list">
+    <mat-list-item role="listitem">Home</mat-list-item>
+    <mat-list-item role="listitem">Login/register</mat-list-item>
+    <mat-list-item role="listitem">Productos</mat-list-item>
+  </mat-list>
   </mat-drawer>
 
   <div class="example-sidenav-content">
@@ -25,11 +23,12 @@
       >
         <mat-icon>menu</mat-icon>
       </button>
-      <span>Datos smash</span>
+      <h1>Datos smash</h1>
     </mat-toolbar>
     <main style="padding: 1rem">
     <app-users />
-  <!-- <app-pipes />-->
+     <!--Componente para probar los pipes y directicvas-->
+      <!--<app-pipes />-->
     </main>
   </div>
 </mat-drawer-container>

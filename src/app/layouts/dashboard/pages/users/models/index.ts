@@ -5,6 +5,7 @@ export interface IUser {
     id: number;
     name: string;
     weight: number;
+    lastName: string;
     email: string;
     role: UserRole;
     createdAt: Date;

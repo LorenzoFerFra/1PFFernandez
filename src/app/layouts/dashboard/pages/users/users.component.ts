@@ -10,12 +10,13 @@ import Swal from 'sweetalert2';
   styleUrl: './users.component.scss',
 })
 export class UsersComponent {
-  displayedColumns: string[] = ['id', 'name', 'weight', 'email', 'role', 'createdAt','actions'];
+  displayedColumns: string[] = ['id', 'name', 'weight', 'lastName', 'email', 'role', 'createdAt','actions'];
   usuarios: IUser[] = [
     {
       id: 1,
       name: 'mario',
       weight: 100,
+      lastName: 'mario',
       email: 'mariomario@gmail.com',
       role: 'USER',
       createdAt: new Date(),
@@ -24,10 +25,22 @@ export class UsersComponent {
       id: 2,
       name: 'luigi',
       weight: 98,
+      lastName: 'mario',
       email: 'luigimario@gmail.com',
       role: 'ADMIN',
       createdAt: new Date(),
     },
+    {
+      id: 3,
+      name: 'fox',
+      weight: 71,
+      lastName: 'mcCloud',
+      email: 'starfox@gmail.com',
+      role: 'ADMIN',
+      createdAt: new Date(),
+    },
+    
+    
   ];
   // userRoleSession =  'ADMIN'
 
