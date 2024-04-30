@@ -11,6 +11,7 @@ import { UsersModule } from './pages/users/users.module';
 import { SharedModule } from '../../shared/shared.module';
 import { PipesModule } from './pages/pipes/pipes.module';
 import {MatListModule} from '@angular/material/list';
+import { ProductsModule } from './pages/products/products.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {MatListModule} from '@angular/material/list';
     UsersModule,
     SharedModule,
     PipesModule,
-    MatListModule
+    MatListModule,
+    ProductsModule
   ],
   exports: [
     DashboardComponent
