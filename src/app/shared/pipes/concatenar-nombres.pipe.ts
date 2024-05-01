@@ -5,15 +5,13 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ConcatenarNombresPipe implements PipeTransform {
 
-  transform(value: any[], ...args: unknown[]): unknown {
+  transform(value: any, ...args: unknown[]): unknown {
     
       let concat: string[] = [];
-      for (const key in value) {
-        if (Object.prototype.hasOwnProperty.call(value, key)) {
-          const err = value[key];
-          console.log(value[key])
-          if(args[0] === 'n') concat.push(value[key]);
-          if(args[1] === 'ln') concat.push(value[key]);
+      for (var arg in args){
+        if (Object.prototype.hasOwnProperty.call(value, args[arg] as string)){
+          concat.push(value[args[arg] as string]);
+          console.log(arg)
         }
       }
       return concat.join(', ')

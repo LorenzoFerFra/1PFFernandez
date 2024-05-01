@@ -12,6 +12,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { PipesModule } from './pages/pipes/pipes.module';
 import {MatListModule} from '@angular/material/list';
 import { ProductsModule } from './pages/products/products.module';
+import { RxjsModule } from './pages/rxjs/rxjs.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ProductsModule } from './pages/products/products.module';
     SharedModule,
     PipesModule,
     MatListModule,
-    ProductsModule
+    ProductsModule,
+    RxjsModule
   ],
   exports: [
     DashboardComponent
