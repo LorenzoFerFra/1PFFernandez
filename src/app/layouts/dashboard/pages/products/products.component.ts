@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { ProductsService } from './products.service';
 import { IProduct } from './models/index';
 import { API_URL, PRODUCTS, RANDOM_NUMBER } from './products.module';
+import { AlertsService } from '../../../../core/services/alerts.service';
 
 @Component({
   selector: 'app-products',
@@ -14,12 +15,16 @@ export class ProductsComponent implements OnInit {
     
     //products: IProduct[] = [];
 
-  constructor(private productService: ProductsService, 
+  constructor(private productService: ProductsService,
+    private alertService: AlertsService,
     @Inject(API_URL) private apiUlr: string,
     @Inject(RANDOM_NUMBER) private numeroAleatorio: number,
     @Inject(PRODUCTS) public products: IProduct[],
     ){ 
       console.log(this.numeroAleatorio)
+      this.alertService.notifier$.subscribe({
+        next: (message) => console.log(message),
+      });
   }
   ngOnInit(): void {
       //this.products = this.productService.getProducts();

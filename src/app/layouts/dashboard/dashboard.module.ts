@@ -13,6 +13,7 @@ import { PipesModule } from './pages/pipes/pipes.module';
 import {MatListModule} from '@angular/material/list';
 import { ProductsModule } from './pages/products/products.module';
 import { RxjsModule } from './pages/rxjs/rxjs.module';
+import { Rxjs10Module } from './pages/rxjs10/rxjs10.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { RxjsModule } from './pages/rxjs/rxjs.module';
     PipesModule,
     MatListModule,
     ProductsModule,
-    RxjsModule
+    RxjsModule,
+    Rxjs10Module
   ],
   exports: [
     DashboardComponent

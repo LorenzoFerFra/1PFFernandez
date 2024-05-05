@@ -24,14 +24,19 @@
         <mat-icon>menu</mat-icon>
       </button>
       <h1>Datos smash</h1>
+      <button mat-flat-button>Login/Register</button>
     </mat-toolbar>
     <main style="padding: 1rem">
     <!--Componente de Usuarios-->
-    <app-users /> 
+    <!-- <app-users />  -->
     <!--Componente de Productos-->
     <!-- <app-products /> -->
-    <!--Componente de rxjs-->
+    <!--Componente de rxjs--> 
     <!-- <app-rxjs /> -->
+    <button (click)="mostrarComponent = !mostrarComponent">
+      alternar componente
+    </button>
+    <app-rxjs10 *ngIf="mostrarComponent" />
      <!--Componente para probar los pipes y directicvas-->
       <!--<app-pipes />-->
     </main>
