@@ -45,7 +45,6 @@ export class UsersComponent {
   // userRoleSession =  'ADMIN'
 
   constructor(private matDialog: MatDialog) {}
-
   openDialog(editUser?: IUser): void {
     this.matDialog
     .open(UsersDialogComponent, {
@@ -54,7 +53,7 @@ export class UsersComponent {
     .afterClosed()
     .subscribe({
       next: (result) => {
-        console.log(result);
+
         if (result){
           if(editUser){
             this.usuarios = this.usuarios.map((i) => i.id === editUser.id ? {...i, ...result} : i)

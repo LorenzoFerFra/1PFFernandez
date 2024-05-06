@@ -11,7 +11,6 @@ export class ConcatenarNombresPipe implements PipeTransform {
       for (var arg in args){
         if (Object.prototype.hasOwnProperty.call(value, args[arg] as string)){
           concat.push(value[args[arg] as string]);
-          console.log(arg)
         }
       }
       return concat.join(', ')

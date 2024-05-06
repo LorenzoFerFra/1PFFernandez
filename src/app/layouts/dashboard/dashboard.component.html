@@ -6,25 +6,43 @@
     class="example-sidenav"
     [mode]="isMobile() ? 'over' : 'side'"
   >
-  <mat-list role="list">
-    <mat-list-item role="listitem">Home</mat-list-item>
-    <mat-list-item role="listitem">Login/register</mat-list-item>
-    <mat-list-item role="listitem">Productos</mat-list-item>
-  </mat-list>
+  <mat-nav-list role="list">
+    <mat-list-item routerLink="/home" role="listitem">Home</mat-list-item>
+    <mat-list-item routerLink="users" role="listitem">Usuarios</mat-list-item>
+    <mat-list-item routerLink="products" role="listitem">Productos</mat-list-item>
+  </mat-nav-list>
   </mat-drawer>
 
   <div class="example-sidenav-content">
     <mat-toolbar color="primary">
-      <button
-        (click)="drawer.toggle()"
-        mat-icon-button
-        class="example-icon"
-        aria-label="Example icon-button with menu icon"
-      >
-        <mat-icon>menu</mat-icon>
-      </button>
-      <h1>Datos smash</h1>
-      <button mat-flat-button>Login/Register</button>
+      <div class="d-flex justify-content-between align-items-center w-100">
+        <div>
+          <button
+          (click)="drawer.toggle()"
+          mat-icon-button
+          class="example-icon"
+          aria-label="Example icon-button with menu icon"
+          >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>Datos smash</span>
+      </div>
+      <div>
+        <!--Mostrar si  esta logueado-->
+        @if (currentUser$ | async; as user){
+        } 
+        @else {
+         <!--Mostrar si  esta logueado-->
+          <button (click)="login()" mat-flat-button>Login/Register</button>
+        }
+        </div>
+      @if (currentUser$ | async; as user) {
+        <div>
+          {{user?.name}}
+          <button color="warn" (click)="logout()" mat-flat-button>Logout</button>
+         </div>
+      }
+    </div>
     </mat-toolbar>
     <main style="padding: 1rem">
     <!--Componente de Usuarios-->
@@ -33,12 +51,13 @@
     <!-- <app-products /> -->
     <!--Componente de rxjs--> 
     <!-- <app-rxjs /> -->
-    <button (click)="mostrarComponent = !mostrarComponent">
+    <!-- <button (click)="mostrarComponent = !mostrarComponent">
       alternar componente
     </button>
-    <app-rxjs10 *ngIf="mostrarComponent" />
+    <app-rxjs10 *ngIf="mostrarComponent" /> -->
      <!--Componente para probar los pipes y directicvas-->
-      <!--<app-pipes />-->
+      <!--<app-pipes />-->  
+      <router-outlet/>
     </main>
   </div>
 </mat-drawer-container>

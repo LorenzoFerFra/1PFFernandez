@@ -21,7 +21,6 @@ export class ProductsComponent implements OnInit {
     @Inject(RANDOM_NUMBER) private numeroAleatorio: number,
     @Inject(PRODUCTS) public products: IProduct[],
     ){ 
-      console.log(this.numeroAleatorio)
       this.alertService.notifier$.subscribe({
         next: (message) => console.log(message),
       });
