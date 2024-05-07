@@ -1,2 +1,6 @@
-<p>user-detail works!</p>
-<button (click)="cambiarParametro()">cambiar param</button>
+<mat-spinner *ngIf="cargando"></mat-spinner>
+<div [ngClass]="!cargando ? 'd-block' : 'd-none'">
+    <h1>Detalles del usuario: NOMBRE</h1>
+    <pre>{{ user$ | async | json }}</pre>
+</div>
+    <button (click)="cambiarParametro()">cambiar param</button>

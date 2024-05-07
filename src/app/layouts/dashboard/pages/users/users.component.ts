@@ -1,50 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IUser } from './models/index';
 import { MatDialog } from '@angular/material/dialog';
 import { UsersDialogComponent } from './components/users-dialog/users-dialog.component';
 import Swal from 'sweetalert2';
+import { UsersService } from './users.service';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrl: './users.component.scss',
 })
-export class UsersComponent {
+export class UsersComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'weight', 'lastName', 'email', 'role', 'createdAt','actions'];
-  usuarios: IUser[] = [
-    {
-      id: 1,
-      name: 'mario',
-      weight: 100,
-      lastName: 'mario',
-      email: 'mariomario@gmail.com',
-      role: 'USER',
-      createdAt: new Date(),
-    },
-    {
-      id: 2,
-      name: 'luigi',
-      weight: 98,
-      lastName: 'mario',
-      email: 'luigimario@gmail.com',
-      role: 'ADMIN',
-      createdAt: new Date(),
-    },
-    {
-      id: 3,
-      name: 'fox',
-      weight: 71,
-      lastName: 'mcCloud',
-      email: 'starfox@gmail.com',
-      role: 'ADMIN',
-      createdAt: new Date(),
-    },
-    
-    
-  ];
-  // userRoleSession =  'ADMIN'
+  usuarios: IUser[] = [];
+  cargando = false;
+  // userRoleSession =  'ADMIN' 
 
-  constructor(private matDialog: MatDialog) {}
+  constructor(private matDialog: MatDialog, private usersService: UsersService ) {}
+  ngOnInit(): void {
+    this.cargando = true;
+    this.usersService.getUsers().subscribe({
+      next: (users) => {
+        console.log('next', users)
+        this.usuarios = users;
+      },
+      error: (err) => {
+        console.log('error', err)
+        // Cambiar error segun codigo hhtps
+        Swal.fire('Error', 'Ocurrio un error al cargar los usuarios', 'error');
+      },
+      complete: () => {
+        console.log('complete', )
+        this.cargando = false;
+      }
+    })
+  }
   openDialog(editUser?: IUser): void {
     this.matDialog
     .open(UsersDialogComponent, {

@@ -10,6 +10,7 @@ export class AuthService {
 
     public authUser$ = this._authUser$.asObservable();
 
+    //emite el usuario y el observable auth user
     login(): void {
         this._authUser$.next({
             id: 1,

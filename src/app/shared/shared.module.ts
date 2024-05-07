@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { FormFieldValidationErrorsPipe } from './pipes/form-field-validation-errors.pipe';
 import { ResaltadoDirective } from './directives/resaltado.directive';
 import { RepetirDirective } from './directives/repetir.directive';
@@ -30,7 +31,7 @@ import { ConcatenarNombresPipe } from './pipes/concatenar-nombres.pipe';
   exports: [
     MatTableModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, FormsModule, 
     ReactiveFormsModule,MatSelectModule,MatIconModule,FormFieldValidationErrorsPipe,ResaltadoDirective, RepetirDirective,
-    CabeceraDirective, ConcatenarNombresPipe
+    CabeceraDirective, ConcatenarNombresPipe, MatProgressSpinnerModule,
   ],
 })
 export class SharedModule { }
