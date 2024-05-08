@@ -23,6 +23,16 @@ const routes: Routes = [ {
       import('./pages/products/products.module').then((m) => m.ProductsModule),
     },
     {
+      path: 'cursos',
+      loadChildren: () => 
+      import('./pages/cursos/cursos.module').then((m) => m.CursosModule),
+    },
+    {
+      path: 'classes',
+      loadChildren: () => 
+      import('./pages/classes/classes.module').then((m) => m.ClassesModule),
+    },
+    {
       path: '',
       pathMatch: 'full',
       redirectTo: 'home',

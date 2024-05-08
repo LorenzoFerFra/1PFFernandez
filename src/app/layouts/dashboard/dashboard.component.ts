@@ -29,14 +29,13 @@ export class DashboardComponent implements OnInit {
   }
     
     login(): void {
-     this.authServ.login(); 
-     console.log("hello");
-      this.router.navigate(['auth']);
+    //  this.authServ.login(); 
+    //  console.log("hello");
+    this.router.navigate(['auth']);
     }
     logout(): void {
-      this.authServ.logout();
+    this.authServ.logout();
      console.log("hello");
-
       this.router.navigate(['auth']);
      }
 }
