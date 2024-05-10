@@ -13,12 +13,12 @@ import { UsersService } from './users.service';
 export class UsersComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'weight', 'lastName', 'email', 'role', 'createdAt','actions'];
   usuarios: IUser[] = [];
-  cargando = false;
+  isLoading = false;
   // userRoleSession =  'ADMIN' 
 
   constructor(private matDialog: MatDialog, private usersService: UsersService ) {}
   ngOnInit(): void {
-    this.cargando = true;
+    this.isLoading = true;
     this.usersService.getUsers().subscribe({
       next: (users) => {
         console.log('next', users)
@@ -31,7 +31,7 @@ export class UsersComponent implements OnInit {
       },
       complete: () => {
         console.log('complete', )
-        this.cargando = false;
+        this.isLoading = false;
       }
     })
   }

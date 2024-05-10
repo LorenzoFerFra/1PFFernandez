@@ -1,5 +1,5 @@
-<mat-spinner *ngIf="cargando"></mat-spinner>
-<ng-container *ngIf="!cargando" >
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<ng-container *ngIf="!isLoading" >
 <div class="d-flex justify-content-end mb-4">
   <button (click)="openDialog()" color="primary"> Crear usuario</button>
 </div>

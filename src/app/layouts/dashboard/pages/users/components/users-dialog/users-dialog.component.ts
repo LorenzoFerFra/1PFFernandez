@@ -37,7 +37,6 @@ export class UsersDialogComponent {
     }
   }
   get nameGet() {
-    console.log("aaa")
     return this.usuariosForm.get('name');
   }
   
