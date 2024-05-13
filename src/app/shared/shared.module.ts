@@ -14,6 +14,7 @@ import { ResaltadoDirective } from './directives/resaltado.directive';
 import { RepetirDirective } from './directives/repetir.directive';
 import { CabeceraDirective } from './directives/cabecera.directive';
 import { ConcatenarNombresPipe } from './pipes/concatenar-nombres.pipe';
+import { MatCardModule } from '@angular/material/card';
 
 
 
@@ -31,7 +32,7 @@ import { ConcatenarNombresPipe } from './pipes/concatenar-nombres.pipe';
   exports: [
     MatTableModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, FormsModule, 
     ReactiveFormsModule,MatSelectModule,MatIconModule,FormFieldValidationErrorsPipe,ResaltadoDirective, RepetirDirective,
-    CabeceraDirective, ConcatenarNombresPipe, MatProgressSpinnerModule,
+    CabeceraDirective, ConcatenarNombresPipe, MatProgressSpinnerModule, MatCardModule,
   ],
 })
 export class SharedModule { }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
+import { adminGuard } from '../../core/guards/admin.guard';
 
 const routes: Routes = [ {
   // path actual: http://localhost:6900/dashboard
@@ -14,6 +15,7 @@ const routes: Routes = [ {
     },
     {
       path: 'users',
+      canActivate: [adminGuard],
       loadChildren: () => 
       import('./pages/users/users.module').then((m) => m.UsersModule),
     },
