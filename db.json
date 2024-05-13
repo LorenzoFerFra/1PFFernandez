@@ -1,0 +1,33 @@
+{
+  "users": [
+        {
+          "id": 1,
+          "name": "mario",
+          "weight": 100,
+          "lastName": "mario",
+          "email": "mariomario@gmail.com",
+          "role": "USER",
+          "createdAt": "2024-05-10T00:00:00.000Z"
+        },
+        {
+          "id": 2,
+          "name": "luigi",
+          "weight": 98,
+          "lastName": "mario",
+          "email": "luigimario@gmail.com",
+          "role": "ADMIN",
+          "createdAt": "2024-05-10T00:00:00.000Z"
+        },
+        {
+          "id": 3,
+          "name": "fox",
+          "weight": 71,
+          "lastName": "mcCloud",
+          "email": "starfox@gmail.com",
+          "role": "ADMIN",
+          "createdAt": "2024-05-10T00:00:00.000Z"
+        }
+  ],
+  "classes": [],
+  "courses": []
+}

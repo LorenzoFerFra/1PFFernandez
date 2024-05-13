@@ -22,7 +22,7 @@ export class UserDetailComponent {
 
     // console.log('SNAPSHOT', this.userId.snapshot.params['id']);
     
-    this.user$ = this.userService.getUserById(parseInt(this.userId.snapshot.params['id'])).pipe(
+    this.user$ = this.userService.getUserById(this.userId.snapshot.params['id']).pipe(
       finalize(() => {
         this.cargando = false;
       })

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
 import { adminGuard } from '../../core/guards/admin.guard';
+import { unsavedChangesGuard } from '../../core/guards/unsaved-changes.guard';
 
 const routes: Routes = [ {
   // path actual: http://localhost:6900/dashboard
@@ -31,6 +32,7 @@ const routes: Routes = [ {
     },
     {
       path: 'classes',
+      // canDeactivate: [unsavedChangesGuard],
       loadChildren: () => 
       import('./pages/classes/classes.module').then((m) => m.ClassesModule),
     },

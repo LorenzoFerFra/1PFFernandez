@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ClassesComponent } from './classes.component';
+import { unsavedChangesGuard } from '../../../../core/guards/unsaved-changes.guard';
 
 const routes: Routes = [
   {

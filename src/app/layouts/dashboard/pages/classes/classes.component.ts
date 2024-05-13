@@ -18,6 +18,7 @@ export class ClassesComponent implements OnInit {
   classes: IClass[] = [];
   students: IUser[] = [];
   isLoading = false;
+  // unsavedChanges = false;
 
   classesForm = new FormGroup<IClasssForm>({
     name: new FormControl(null),
@@ -32,7 +33,15 @@ export class ClassesComponent implements OnInit {
     this.loadClasses();
     this.loadUsers();
   }
-
+  //
+  // subscribeToSaleFormChange(): void {
+  //   this.classesForm.valueChanges.subscribe({
+  //     next: (v) => {
+  //       console.log('asdasd ')
+  //       this.unsavedChanges = true;
+  //     },
+  //   });
+  // }
   loadUsers(){
     this.usersService.getUsers().subscribe({
       next: (users) => {
