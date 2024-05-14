@@ -11,62 +11,81 @@ import { UsersService } from './users.service';
   styleUrl: './users.component.scss',
 })
 export class UsersComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name', 'weight', 'lastName', 'email', 'role', 'createdAt','actions'];
+  displayedColumns: string[] = [
+    'id',
+    'name',
+    'weight',
+    'lastName',
+    'email',
+    'role',
+    'createdAt',
+    'actions',
+  ];
   usuarios: IUser[] = [];
   isLoading = false;
-  // userRoleSession =  'ADMIN' 
+  // userRoleSession =  'ADMIN'
 
-  constructor(private matDialog: MatDialog, private usersService: UsersService ) {}
+  constructor(
+    private matDialog: MatDialog,
+    private usersService: UsersService
+  ) {}
   ngOnInit(): void {
     this.isLoading = true;
     this.usersService.getUsers().subscribe({
       next: (users) => {
-        console.log('next', users)
+        console.log('next', users);
         this.usuarios = users;
       },
       error: (err) => {
-        console.log('error', err)
+        console.log('error', err);
         // Cambiar error segun codigo hhtps
         Swal.fire('Error', 'Ocurrio un error al cargar los usuarios', 'error');
       },
       complete: () => {
-        console.log('complete', )
+        console.log('complete');
         this.isLoading = false;
-      }
-    })
+      },
+    });
   }
   openDialog(editUser?: IUser): void {
     this.matDialog
-    .open(UsersDialogComponent, {
-      data: editUser,
-    })
-    .afterClosed()
-    .subscribe({
-      next: (result) => {
+      .open(UsersDialogComponent, {
+        data: editUser,
+      })
+      .afterClosed()
+      .subscribe({
+        next: (result) => {
+          if (result) {
+            if (editUser) {
+              // Actualizar usuario en el array
+              this.usuarios = this.usuarios.map((i) =>
+                i.id === editUser.id ? { ...i, ...result } : i
+              );
+            } else {
+              //Logica de crear el usuario
 
-        if (result){
-          if(editUser){
-            this.usuarios = this.usuarios.map((i) => i.id === editUser.id ? {...i, ...result} : i)
+              //Creado date de hoy
+              result.createdAt = new Date();
+
+              this.usersService.createUser(result).subscribe({
+                next: (usuarioCreado) =>{
+                  this.usuarios = [...this.usuarios, usuarioCreado];
+                }
+              })
+            }
           }
-          else{
-            result.id = new Date().getTime().toString().substring(0, 3);
-            result.createdAt = new Date();
-            this.usuarios = [...this.usuarios, result]
-          }
-        }
-      },
-    })
+        },
+      });
   }
-  delUser(userId: number): void{
-    if(confirm('desea borrar este usuario?'))
-    this.usuarios = this.usuarios.filter((i) => i.id != userId)
+  delUser(userId: number): void {
+    // Boton para condirmar si se quiere borrar, y alerta cuando lo hace
+    if (confirm('desea borrar este usuario?'))
+      this.usuarios = this.usuarios.filter((i) => i.id != userId);
     Swal.fire({
       icon: 'success',
       title: 'Borrado',
       text: 'Usuario borrado exitosamente',
     });
   }
-  edUser(userId: number): void{
-
-  }
+  edUser(userId: number): void {}
 }

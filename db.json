@@ -1,32 +1,59 @@
 {
   "users": [
-        {
-          "id": 1,
-          "name": "mario",
-          "weight": 100,
-          "lastName": "mario",
-          "email": "mariomario@gmail.com",
-          "role": "USER",
-          "createdAt": "2024-05-10T00:00:00.000Z"
-        },
-        {
-          "id": 2,
-          "name": "luigi",
-          "weight": 98,
-          "lastName": "mario",
-          "email": "luigimario@gmail.com",
-          "role": "ADMIN",
-          "createdAt": "2024-05-10T00:00:00.000Z"
-        },
-        {
-          "id": 3,
-          "name": "fox",
-          "weight": 71,
-          "lastName": "mcCloud",
-          "email": "starfox@gmail.com",
-          "role": "ADMIN",
-          "createdAt": "2024-05-10T00:00:00.000Z"
-        }
+    {
+      "id": 1,
+      "name": "mario",
+      "weight": 100,
+      "lastName": "mario",
+      "email": "mariomario@gmail.com",
+      "role": "USER",
+      "createdAt": "2024-05-14T02:14:16.881Z"
+    },
+    {
+      "id": 2,
+      "name": "luigi",
+      "weight": 98,
+      "lastName": "mario",
+      "email": "luigimario@gmail.com",
+      "role": "ADMIN",
+      "createdAt": "2024-05-14T02:14:16.881Z"
+    },
+    {
+      "id": 3,
+      "name": "fox",
+      "weight": 71,
+      "lastName": "mcCloud",
+      "email": "starfox@gmail.com",
+      "role": "ADMIN",
+      "createdAt": "2024-05-14T02:14:16.881Z"
+    },
+    {
+      "id": "0feb",
+      "name": "Koishi",
+      "weight": "74",
+      "lastName": "Komeiji",
+      "email": "kkhta@gmail.com",
+      "role": "USER",
+      "createdAt": "2024-05-14T02:54:17.784Z"
+    },
+    {
+      "id": "81dc",
+      "name": "asdsad",
+      "weight": "66",
+      "lastName": "borrar",
+      "email": "borrar@gmail.com",
+      "role": "USER",
+      "createdAt": "2024-05-14T02:54:55.512Z"
+    },
+    {
+      "id": "bb36",
+      "name": "Satori",
+      "weight": "65",
+      "lastName": "Komeiji",
+      "email": "satori@gmail.com",
+      "role": "USER",
+      "createdAt": "2024-05-14T02:56:51.800Z"
+    }
   ],
   "classes": [],
   "courses": []
