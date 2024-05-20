@@ -13,6 +13,7 @@ export class UserDetailComponent {
 
   user$: Observable<IUser | undefined>;
   cargando = false;
+  
 
   constructor(private userId: ActivatedRoute, private router: Router, private userService: UsersService){
     this.cargando = true;
@@ -20,7 +21,7 @@ export class UserDetailComponent {
     //   next: (i) => console.log('OBSERVABLE', i['id']),
     // })
 
-    // console.log('SNAPSHOT', this.userId.snapshot.params['id']);
+    console.log('SNAPSHOT', this.userId.snapshot.params['id']);
     
     this.user$ = this.userService.getUserById(this.userId.snapshot.params['id']).pipe(
       finalize(() => {
@@ -28,6 +29,9 @@ export class UserDetailComponent {
       })
     );
 
+  }
+  getName (): void {
+    
   }
 
   cambiarParametro(): void {

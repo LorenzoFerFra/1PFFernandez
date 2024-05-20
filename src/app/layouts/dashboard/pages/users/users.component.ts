@@ -79,13 +79,14 @@ export class UsersComponent implements OnInit {
   }
   delUser(userId: number): void {
     // Boton para condirmar si se quiere borrar, y alerta cuando lo hace
-    if (confirm('desea borrar este usuario?'))
+    if (confirm('desea borrar este usuario?')){
       this.usuarios = this.usuarios.filter((i) => i.id != userId);
-    Swal.fire({
-      icon: 'success',
-      title: 'Borrado',
-      text: 'Usuario borrado exitosamente',
-    });
+      Swal.fire({
+        icon: 'success',
+        title: 'Borrado',
+        text: 'Usuario borrado exitosamente',
+      });
+    }
   }
   edUser(userId: number): void {}
 }

@@ -12,8 +12,11 @@ import { IUser } from '../users/models';
   styleUrl: './classes.component.scss'
 })
 export class ClassesComponent implements OnInit {
+openDialog(_t88: any) {
+throw new Error('Method not implemented.');
+}
 
-  displayedColumns: string[] = ['id', 'name', 'students','actions'];
+  displayedColumns: string[] = ['id', 'name', 'students', 'actions'];
 
   classes: IClass[] = [];
   students: IUser[] = [];
@@ -33,7 +36,7 @@ export class ClassesComponent implements OnInit {
     this.loadClasses();
     this.loadUsers();
   }
-  //
+  // Funcion para verificar canDeactivate Que se dejaba bloqueada en clases
   // subscribeToSaleFormChange(): void {
   //   this.classesForm.valueChanges.subscribe({
   //     next: (v) => {
@@ -78,12 +81,13 @@ export class ClassesComponent implements OnInit {
     });
   }
   delClass(classId: number): void{
-    if(confirm('desea borrar esta clase?'))
-    this.classes = this.classes.filter((i) => i.id != classId)
-    Swal.fire({
-      icon: 'success',
-      title: 'Borrado',
-      text: 'Clase borrado exitosamente',
-    });
-  }
+    if(confirm('desea borrar esta clase?')){
+      this.classes = this.classes.filter((i) => i.id != classId)
+      Swal.fire({
+        icon: 'success',
+        title: 'Borrado',
+        text: 'Clase borrada exitosamente',
+      });
+    }
+    }
 }

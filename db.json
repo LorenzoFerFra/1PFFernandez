@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "mario",
       "weight": 100,
       "lastName": "mario",
@@ -10,7 +10,7 @@
       "createdAt": "2024-05-14T02:14:16.881Z"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "luigi",
       "weight": 98,
       "lastName": "mario",
@@ -19,7 +19,7 @@
       "createdAt": "2024-05-14T02:14:16.881Z"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "fox",
       "weight": 71,
       "lastName": "mcCloud",
@@ -55,6 +55,8 @@
       "createdAt": "2024-05-14T02:56:51.800Z"
     }
   ],
-  "classes": [],
+  "classes": [
+
+  ],
   "courses": []
 }
