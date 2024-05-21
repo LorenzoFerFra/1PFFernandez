@@ -49,14 +49,6 @@ export class UsersDialogComponent {
   get lastNameGet(){
     return this.usuariosForm.get('lastName');
   }
-  get fullNameGet(){
-    let n = this.usuariosForm.get('name');
-    let l = this.usuariosForm.get('lastName');
-    console.log(n)
-    let fn: string[] = [];
-    return fn;
-
-  }
 
 
   guardarUsuario(): void{
@@ -68,7 +60,7 @@ export class UsersDialogComponent {
       Swal.fire({
         icon: 'success',
         title: 'listo',
-        text: 'Usuario agregado exitosamente',
+        text: 'Usuario creado exitosamente',
       });
     }
 

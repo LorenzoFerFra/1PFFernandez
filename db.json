@@ -53,10 +53,17 @@
       "email": "satori@gmail.com",
       "role": "USER",
       "createdAt": "2024-05-14T02:56:51.800Z"
+    },
+    {
+      "id": "29a2",
+      "name": "bart",
+      "weight": "11",
+      "lastName": "xdxd",
+      "email": "delet@gmail.com",
+      "role": "ADMIN",
+      "createdAt": "2024-05-21T23:04:15.974Z"
     }
   ],
-  "classes": [
-
-  ],
+  "classes": [],
   "courses": []
 }
