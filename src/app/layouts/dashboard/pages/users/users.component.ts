@@ -63,7 +63,6 @@ export class UsersComponent implements OnInit {
               );
             } else {
               //Logica de crear el usuario
-
               //Creado date de hoy
               result.createdAt = new Date();
 
