@@ -1,14 +1,27 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../../../environments/environment';
+import { ICurso, ICursoPayload } from './models';
+import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class CursosService {
 
+    constructor(private httpClient: HttpClient) {}
 
-    getCursos() {
+    getCursos(): Observable<ICurso[]> {
+        return this.httpClient.get<ICurso[]>(environment.baseAPIURL + '/cursos')
+    }
+
+    createCurso(data: ICursoPayload){ 
+
+    }
+    
+    delCurso(){
 
     }
 
-    createCursos(){ 
-        
+    editCurso(){
+
     }
 }

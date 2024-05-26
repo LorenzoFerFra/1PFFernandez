@@ -11,7 +11,6 @@ import { UsersModule } from './pages/users/users.module';
 import { SharedModule } from '../../shared/shared.module';
 import { PipesModule } from './pages/pipes/pipes.module';
 import {MatListModule} from '@angular/material/list';
-import { ProductsModule } from './pages/products/products.module';
 import { RxjsModule } from './pages/rxjs/rxjs.module';
 import { Rxjs10Module } from './pages/rxjs10/rxjs10.module';
 
@@ -30,7 +29,6 @@ import { Rxjs10Module } from './pages/rxjs10/rxjs10.module';
     SharedModule,
     PipesModule,
     MatListModule,
-    ProductsModule,
     RxjsModule,
     Rxjs10Module
   ],

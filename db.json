@@ -65,5 +65,13 @@
     }
   ],
   "classes": [],
-  "courses": []
+  "cursos": [
+    {
+      "id": "1",
+      "name": "angular",
+      "profesor": "dr mario",
+      "inscription:": ["1", "2"],
+      "createdAt": "2024-05-14T02:14:16.881Z"
+    }
+  ]
 }

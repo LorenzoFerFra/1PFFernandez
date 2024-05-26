@@ -1,1 +1,80 @@
-<p>cursos works!</p>
+@if (loadingCursos$ | async) {
+<mat-spinner></mat-spinner>
+} @else { @if (error$ | async) {
+<h2>Disculpa mario, el html esta en otra base de datos</h2>
+<div
+class="d-flex align-items-center justify-content-center"
+>
+<img
+  class="main__img  img-fluid"
+  src="../../../../../assets/Super-Mario-Bros-404-error.webp"
+  alt="portada smash ultimate"
+/>  
+</div>
+} 
+
+@else {
+
+    <pre>{{cursosForm.value | json }} </pre>
+
+    <form [formGroup]="cursosForm" action="">
+        <mat-form-field>
+            <mat-label>Curso</mat-label>
+            <mat-select formControlName="name">
+                <mat-option [value]="curso.name" *ngFor="let curso of cursos ">{{curso.name}} </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Alumnos</mat-label>
+            <mat-select formControlName="students"> 
+              <mat-option [value]="student" *ngFor="let student of students ">{{student.name}} </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button  mat-raised-button >Crear Curso nuevo</button>
+    </form>
+<table mat-table [dataSource]="cursos" class="mat-elevation-z8" style="background-color: silver">
+    <!-- CLass id Column -->
+    <ng-container matColumnDef="id">
+      <th appCabecera mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+  
+    <!-- Class name Column -->
+    <ng-container  matColumnDef="name">
+      <th appCabecera mat-header-cell *matHeaderCellDef> Clases </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+      
+    <!-- Class name Column -->
+    <ng-container  matColumnDef="profesor">
+      <th appCabecera mat-header-cell *matHeaderCellDef> Profesor </th>
+      <td mat-cell *matCellDef="let element"> {{element.profesor}} </td>
+    </ng-container>
+  
+  
+      <!-- Student list Column -->
+     <ng-container matColumnDef="inscription">
+            <th appCabecera mat-header-cell *matHeaderCellDef> Inscripciones </th>
+            <td mat-cell *matCellDef="let element"> {{element.inscription}} </td>
+     </ng-container>  
+
+          <!-- Acciones de control de clases Column -->
+          <ng-container matColumnDef="actions">
+            <th appCabecera mat-header-cell *matHeaderCellDef> Acciones </th>
+            <td mat-cell *matCellDef="let element">
+              <button [routerLink]="element.id"  mat-icon-button color="primary">
+                <mat-icon>visibility</mat-icon> 
+              </button>
+              <button (click)="openDialog(element)" mat-icon-button color="primary">
+                <mat-icon>edit</mat-icon> 
+              </button>
+              <button  (click)="delCurso(element.id)" mat-icon-button color="warn">
+                <mat-icon>delete forever</mat-icon>
+              </button>
+            </td>
+     </ng-container>  
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+}}
