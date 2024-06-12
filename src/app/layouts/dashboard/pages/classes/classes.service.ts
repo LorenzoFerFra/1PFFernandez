@@ -7,9 +7,9 @@ const CLASSES_DB: IClass[] = [
     {
         id: 1,
         name: 'angular',
-        students: 
+        profesor: 
             {
-                id: 1,
+                id: "1",
                 name: 'mario',
                 weight: 100,
                 lastName: 'mario',
@@ -22,9 +22,9 @@ const CLASSES_DB: IClass[] = [
     {
         id: 2,
         name: 'math',
-        students: 
+        profesor: 
               {
-                id: 3,
+                id: "3",
                 name: 'fox',
                 weight: 71,
                 lastName: 'mcCloud',
@@ -48,11 +48,11 @@ export class ClassesService {
     }
 
     createClass(data: ICreateClassData){ 
-        if(data.name && data.students){
+        if(data.name && data.profesor){
             const newClass: IClass = {
                 id: counter,
                 name: data.name,
-                students: data.students,
+                profesor: data.profesor,
             }
             CLASSES_DB.push(newClass)
             counter++;

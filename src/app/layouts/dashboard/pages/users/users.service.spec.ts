@@ -48,7 +48,7 @@ xdescribe('UsersService', () => {
     };
 
     const mockResp: IUser = {
-      id: 123,
+      id: "123",
       name: 'Koishi',
       email: 'asd@mail.com',
       weight: 69,

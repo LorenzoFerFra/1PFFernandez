@@ -2,16 +2,16 @@ import { FormControl } from "@angular/forms";
 import { IUser } from "../../users/models";
 
 export interface ICurso {
-    id: number;
+    id: string;
     name: string;
     profesor: string;
-    inscription: number[];
+    user?: IUser;
+    userId: string;
     createdAt: Date;
   }
   export interface ICursoPayload{
     name: string | null;
     profesor: string| null;
-    inscription: number[]| null;
     createdAt: Date | null;
   }
   export interface ICursoForm{

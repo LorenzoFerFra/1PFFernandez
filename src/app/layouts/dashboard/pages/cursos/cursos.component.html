@@ -15,7 +15,6 @@ class="d-flex align-items-center justify-content-center"
 
 @else {
 
-    <pre>{{cursosForm.value | json }} </pre>
 
     <form [formGroup]="cursosForm" action="">
         <mat-form-field>
@@ -26,8 +25,8 @@ class="d-flex align-items-center justify-content-center"
         </mat-form-field>
         <mat-form-field>
             <mat-label>Alumnos</mat-label>
-            <mat-select formControlName="students"> 
-              <mat-option [value]="student" *ngFor="let student of students ">{{student.name}} </mat-option>
+            <mat-select formControlName="users"> 
+              <mat-option [value]="user" *ngFor="let user of users ">{{user.name}} </mat-option>
             </mat-select>
         </mat-form-field>
         <button  mat-raised-button >Crear Curso nuevo</button>
@@ -77,4 +76,6 @@ class="d-flex align-items-center justify-content-center"
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+
+  <pre>{{cursos$ | async | json }} </pre>
 }}

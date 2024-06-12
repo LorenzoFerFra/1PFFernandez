@@ -12,7 +12,7 @@ const initialState: AuthState = {
 };
 
 const MOCK_AUTH_USER: IUser = {
-  id: 1,
+  id: "1",
   name: 'Admin',
   weight: 98,
   lastName: 'mario',

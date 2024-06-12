@@ -32,6 +32,12 @@ const routes: Routes = [ {
       import('./pages/classes/classes.module').then((m) => m.ClassesModule),
     },
     {
+      path: 'students',
+      // canDeactivate: [unsavedChangesGuard],
+      loadChildren: () => 
+      import('./pages/students/students.module').then((m) => m.StudentsModule),
+    },
+    {
       path: '',
       pathMatch: 'full',
       redirectTo: 'home',

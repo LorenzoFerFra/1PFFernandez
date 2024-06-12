@@ -64,13 +64,41 @@
       "createdAt": "2024-05-21T23:04:15.974Z"
     }
   ],
-  "classes": [],
+  "students": [{
+    "id": "1",
+    "name": "Juan",
+    "lastName": "Mario",
+    "sex": "MALE",
+    "prof": "DEV"
+  },
+  {
+    "id": "2",
+    "name": "Agustin",
+    "lastName": "Tassi",
+    "sex": "MALE",
+    "prof": "DEV"
+  }
+
+],
+  "classes": [{
+    "id": "1",
+    "name": "redux",
+    "profesor": "dr marios",
+    "createdAt": "2024-05-14T02:14:16.881Z"
+  }],
   "cursos": [
     {
       "id": "1",
       "name": "angular",
-      "profesor": "dr mario",
-      "inscription:": ["1", "2"],
+      "profesor": "dr marios",
+      "userId:": "1", 
+      "createdAt": "2024-05-14T02:14:16.881Z"
+    },
+     {
+      "id": "2",
+      "name": "angular",
+      "profesor": "jorge",
+      "userId:": "2", 
       "createdAt": "2024-05-14T02:14:16.881Z"
     }
   ]

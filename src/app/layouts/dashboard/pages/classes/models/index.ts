@@ -5,15 +5,15 @@ import { IUser } from "../../users/models";
 export interface IClass {
     id: number;
     name: string;
-    students: IUser;
+    profesor: IUser;
   }
   export interface IClasssForm{
     name: FormControl<string | null>;
-    students: FormControl<IUser | null>; 
+    profesor: FormControl<IUser | null>; 
   }
 
   export interface ICreateClassData{
     name?: string | null;
-    students?: IUser | null; 
+    profesor?: IUser | null; 
   }
  

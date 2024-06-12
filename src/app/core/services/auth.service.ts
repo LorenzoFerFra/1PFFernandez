@@ -12,7 +12,7 @@ export class AuthService {
 
   public authUser$ = this._authUser$.asObservable();
   private MOCK_AUTH_USER: IUser = {
-    id: 1,
+    id: "1",
     name: 'lorenzo',
     weight: 98,
     lastName: 'mario',

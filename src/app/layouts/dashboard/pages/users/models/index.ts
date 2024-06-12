@@ -2,7 +2,7 @@ export type UserRole = 'ADMIN' | 'USER';
  
 
 export interface IUser {
-    id: number;
+    id: string;
     name: string;
     weight: number;
     lastName: string;

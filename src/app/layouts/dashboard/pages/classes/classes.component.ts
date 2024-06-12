@@ -25,7 +25,7 @@ throw new Error('Method not implemented.');
 
   classesForm = new FormGroup<IClasssForm>({
     name: new FormControl(null),
-    students: new FormControl(null),
+    profesor: new FormControl(null),
   });
 
   constructor(private classesService: ClassesService, private usersService: UsersService){

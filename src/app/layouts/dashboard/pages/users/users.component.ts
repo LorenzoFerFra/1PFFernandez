@@ -76,7 +76,7 @@ export class UsersComponent implements OnInit {
         },
       });
   }
-  delUser(userId: number): void {
+  delUser(userId: string): void {
     // Boton para condirmar si se quiere borrar, y alerta cuando lo hace
     if (confirm('desea borrar este usuario?')){
       this.usuarios = this.usuarios.filter((i) => i.id != userId);
@@ -87,5 +87,5 @@ export class UsersComponent implements OnInit {
       });
     }
   }
-  edUser(userId: number): void {}
+  edUser(userId: string): void {}
 }

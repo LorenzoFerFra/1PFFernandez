@@ -12,7 +12,6 @@ export class AppComponent {
  
   constructor() {
     if (!environment.currentlyProd) {
-      console.log(environment, 'yippie');
     }
   }
 }
