@@ -3,6 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, concatMap } from 'rxjs/operators';
 import { Observable, EMPTY, of } from 'rxjs';
 import { InscriptionActions } from './inscription.actions';
+import { InscriptionService } from '../inscriptions.service';
 
 
 @Injectable()
@@ -13,14 +14,16 @@ export class InscriptionEffects {
 
       ofType(InscriptionActions.loadInscriptions),
       concatMap(() =>
-        /** An EMPTY observable only emits completion. Replace with your own observable API request */
-        EMPTY.pipe(
+        
+        this.inscriptionService.getInscriptions().pipe(
+          // ok
           map(data => InscriptionActions.loadInscriptionsSuccess({ data })),
+          // error al cargar inscripciones
           catchError(error => of(InscriptionActions.loadInscriptionsFailure({ error }))))
       )
     );
   });
 
 
-  constructor(private actions$: Actions) {}
+  constructor(private actions$: Actions, private inscriptionService: InscriptionService) {}
 }

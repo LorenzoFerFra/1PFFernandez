@@ -33,9 +33,13 @@ const routes: Routes = [ {
     },
     {
       path: 'students',
-      // canDeactivate: [unsavedChangesGuard],
       loadChildren: () => 
       import('./pages/students/students.module').then((m) => m.StudentsModule),
+    },
+    {
+      path: 'inscriptions',
+      loadChildren: () => 
+      import('./pages/inscriptions/inscriptions.module').then((m) => m.InscriptionsModule),
     },
     {
       path: '',

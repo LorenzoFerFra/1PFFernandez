@@ -1,1 +1,93 @@
-<p>students workasdasdasds!</p>
+@if (loadingStudents$ | async) {
+<mat-spinner></mat-spinner>
+} @else { @if (error$ | async) {
+<h2>Disculpa mario, el html esta en otra base de datos</h2>
+<div class="d-flex align-items-center justify-content-center">
+  <img
+    class="main__img img-fluid"
+    src="../../../../../assets/Super-Mario-Bros-404-error.webp"
+    alt="portada smash ultimate"
+  />
+</div>
+} @else {
+
+<!-- <form [formGroup]="studentsForm" action="">
+  <mat-form-field>
+    <mat-label>student</mat-label>
+    <mat-select formControlName="name">
+      <mat-option [value]="student.name" *ngFor="let student of students"
+        >{{ student.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Alumnos</mat-label>
+  </mat-form-field>
+  <button mat-raised-button>Crear estudiante nuevo</button>
+</form> -->
+<form [formGroup]="studentsForm" action="">
+  <mat-form-field>
+      <mat-label>student</mat-label>
+      <mat-select formControlName="name">
+          <mat-option [value]="student.name" *ngFor="let student of students ">{{student.name}} </mat-option>
+      </mat-select>
+  </mat-form-field>
+  <button  mat-raised-button >Crear student nuevo</button>
+</form>
+<table
+  mat-table
+  [dataSource]="students"
+  class="mat-elevation-z8"
+  style="background-color: silver"
+>
+  <!-- id-->
+  <ng-container matColumnDef="id">
+    <th appCabecera mat-header-cell *matHeaderCellDef>Id</th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+  </ng-container>
+
+  <!-- name Column -->
+  <ng-container matColumnDef="name">
+    <th appCabecera mat-header-cell *matHeaderCellDef>Nombre</th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+  </ng-container>
+
+  <!-- last name Column -->
+  <ng-container matColumnDef="lastName">
+    <th appCabecera mat-header-cell *matHeaderCellDef>Apellido</th>
+    <td mat-cell *matCellDef="let element">{{ element.profesor }}</td>
+  </ng-container>
+
+  <!-- sex list Column -->
+  <ng-container matColumnDef="sex">
+    <th appCabecera mat-header-cell *matHeaderCellDef>Sexo</th>
+    <td mat-cell *matCellDef="let element">{{ element.sex }}</td>
+  </ng-container>
+  <!-- sex list Column -->
+  <ng-container matColumnDef="sex">
+    <th appCabecera mat-header-cell *matHeaderCellDef>Sexo</th>
+    <td mat-cell *matCellDef="let element">{{ element.sex }}</td>
+  </ng-container>
+
+  <!-- Acciones de control de clases Column -->
+  <ng-container matColumnDef="actions">
+    <th appCabecera mat-header-cell *matHeaderCellDef>Acciones</th>
+    <td mat-cell *matCellDef="let element">
+      <button [routerLink]="element.id" mat-icon-button color="primary">
+        <mat-icon>visibility</mat-icon>
+      </button>
+      <button (click)="openDialog(element)" mat-icon-button color="primary">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button (click)="delStudent(element.id)" mat-icon-button color="warn">
+        <mat-icon>delete forever</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+<p>asdasdas</p>
+<pre>{{ students$ | async | json }} </pre>
+}}

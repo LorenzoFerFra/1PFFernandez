@@ -10,6 +10,7 @@
     <mat-list-item routerLink="/home" role="listitem">Home</mat-list-item>
     <mat-list-item *ngIf="(currentUser$ | async)?.role === 'ADMIN'" routerLink="users" role="listitem">Usuarios</mat-list-item>
     <mat-list-item routerLink="students" role="listitem">Alumnos</mat-list-item>
+    <mat-list-item routerLink="inscriptions" role="listitem">Inscripciones</mat-list-item>
     <mat-list-item routerLink="classes" role="listitem">Clases</mat-list-item>
     <mat-list-item routerLink="cursos" role="listitem">Cursos</mat-list-item>
     <mat-list-item color="warn" (click)="logout()"  role="listitem">Cerrar Sesión</mat-list-item>

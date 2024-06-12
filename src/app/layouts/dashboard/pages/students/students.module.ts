@@ -23,7 +23,6 @@ import { SharedModule } from '../../../../shared/shared.module';
   ],
   exports: [
     StudentsComponent
-    
   ],
 })
 export class StudentsModule { }

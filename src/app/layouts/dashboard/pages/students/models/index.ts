@@ -1,3 +1,5 @@
+import { FormControl } from "@angular/forms";
+
 export type StudentSex = 'MALE' | 'FEMALE';
 export type StudentProf = 'DEV' | 'IT';
 
@@ -13,4 +15,10 @@ export interface IStudent {
     lastName: string | null;
     sex:  StudentSex | null;
     prof: StudentProf| null;
+  }
+  export interface IStudentForm{
+    name: FormControl<string | null>;
+    lastName: FormControl<string | null>; 
+    sex:  FormControl<StudentSex | null>; 
+    prof: FormControl<StudentProf | null>; 
   }

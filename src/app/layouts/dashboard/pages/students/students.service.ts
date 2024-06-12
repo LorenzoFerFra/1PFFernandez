@@ -2,25 +2,30 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../../environments/environment';
 import { IStudent, IStudentPayload } from './models';
-import { Observable } from 'rxjs';
+import { Observable, catchError, delay, of, throwError  } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class StudentsService {
-    constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) {}
 
-    getStudents(): Observable<IStudent[]> {
-        return this.httpClient.get<IStudent[]>(environment.baseAPIURL + '/student')
-    }
+  getStudents(): Observable<IStudent[]> {
+    return this.httpClient.get<IStudent[]>(environment.baseAPIURL + '/students');
+  }
 
-    createStudent(data: IStudentPayload){ 
-        
-    }
-    
-    delStudent(){
+  getStudentById(id: string): Observable<IStudent | undefined> {
+    return this.httpClient.get<IStudent>(
+      environment.baseAPIURL + '/students/' + id
+    );
+  }
 
-    }
+  createStudent(payload: IStudentPayload): Observable<IStudent> {
+    return this.httpClient.post<IStudent>(
+      `${environment.baseAPIURL}/students`,
+      payload
+    );
+  }
 
-    editStudent(){
+  delStudent() {}
 
-    }
+  editStudent() {}
 }

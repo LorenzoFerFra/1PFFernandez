@@ -6,10 +6,13 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { UsersService } from '../users/users.service';
 import { IUser } from '../users/models';
 import { IStudent } from '../students/models';
+import { StudentsService } from '../students/students.service';
 import { Store } from '@ngrx/store';
 import { CursoActions } from './store/curso.actions';
 import { selectCursoList, selectCursosError, selectLoadingCursos } from './store/curso.selectors';
 import { Observable} from 'rxjs';
+import { selectStudentList } from '../students/store/student.selectors';
+import { StudentActions } from '../students/store/student.actions';
 
 @Component({
   selector: 'app-cursos',
@@ -24,24 +27,29 @@ export class CursosComponent implements OnInit {
     displayedColumns: string[] = ['id', 'name', 'profesor' , 'inscription', 'actions'];
     cursos: ICurso[] = [];
     users: IUser[] = [];
+    students: IStudent[] = [];
+    students$: Observable<IStudent[]>;
+
     error$: Observable<unknown>;
     loadingCursos$: Observable<boolean>;
-    cursos$: Observable<ICurso[]>
+    cursos$: Observable<ICurso[]>;
   
     cursosForm = new FormGroup<ICursoForm>({
       name: new FormControl(null),
       students: new FormControl(null),
     });
   
-    constructor(private store: Store, private cursosService: CursosService, private usersService: UsersService){
+    constructor(private store: Store, private cursosService: CursosService, private usersService: UsersService, private studentsService: StudentsService){
       this.loadingCursos$ = this.store.select(selectLoadingCursos);
       this.error$ = this.store.select(selectCursosError);
       this.cursos$ = this.store.select(selectCursoList)
+      this.students$ = this.store.select(selectStudentList);
     }
 
     ngOnInit(): void {
       this.loadCursos();
       this.loadUsers();
+
     }
 
     //
@@ -57,6 +65,14 @@ export class CursosComponent implements OnInit {
         complete: () => {
         }
       })
+    }
+    loadStudents() {
+      this.store.dispatch(StudentActions.loadStudents());
+      this.store.select(selectStudentList).subscribe({
+        next: (students) => {
+          this.students = students;
+        },
+      });
     }
     loadCursos () {
       this.store.dispatch(CursoActions.loadCursos());
