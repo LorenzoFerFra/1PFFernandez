@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InscriptionService } from './inscriptions.service';
-import { IInscription } from './models';
+import { IInscription, IInscriptionsForm } from './models';
 import { Store } from '@ngrx/store';
 import { map, Observable } from 'rxjs';
 import Swal from 'sweetalert2';
@@ -9,8 +9,11 @@ import {
   selectInscriptionState,
   selectIsLoading,
   selectInscriptions,
+  selectInscriptionError,
 } from './store/inscription.selectors';
-import { selectCursosError } from '../cursos/store/curso.selectors';
+import { FormControl, FormGroup } from '@angular/forms';
+import { IStudent } from '../students/models';
+import { ICurso } from '../cursos/models';
 
 @Component({
   selector: 'app-inscriptions',
@@ -19,7 +22,6 @@ import { selectCursosError } from '../cursos/store/curso.selectors';
 export class InscriptionsComponent implements OnInit {
   displayedColumns: string[] = [
     'id',
-    'name',
     'userId',
     'studentId',
     'cursoId',
@@ -28,10 +30,17 @@ export class InscriptionsComponent implements OnInit {
   ];
   inscriptions: IInscription[] = [];
   inscriptions$: Observable<IInscription[]>;
-  // cursos: ICurso[] = [];
-  // students: IStudent[] = [];
-  error$: Observable<unknown>;
+  cursos: ICurso[] = [];
+  students: IStudent[] = [];
+  error$: Observable<Error>;
   isLoading$: Observable<boolean>;
+
+  inscriptionsForm = new FormGroup<IInscriptionsForm>({
+    userId: new FormControl(null),
+    studentId: new FormControl(null),
+    cursoId: new FormControl(null),
+    inscriptedAt: new FormControl(null),
+  });
   constructor(
     private store: Store,
     private inscriptionService: InscriptionService
@@ -41,12 +50,13 @@ export class InscriptionsComponent implements OnInit {
     // Obtener las inscripciones observables
     this.inscriptions$ = this.store.select(selectInscriptions);
     // catch error
-    this.error$ = this.store.select(selectCursosError);;
+    this.error$ = this.store.select(selectInscriptionError).pipe(map((err) => err as Error));
   }
 
   ngOnInit(): void {
     this.store.dispatch(InscriptionActions.loadInscriptions());
   }
+
 
   delInscription(arg0: any) {
     throw new Error('Method not implemented.');
@@ -55,5 +65,11 @@ export class InscriptionsComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
 
-  loadInscriptions() {}
+  createInscription(): void {
+    // this.store.dispatch(InscriptionActions.createInscription());
+
+  }
 }
+  
+
+

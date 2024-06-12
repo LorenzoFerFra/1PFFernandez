@@ -1,6 +1,7 @@
 @if (loadingCursos$ | async) {
 <mat-spinner></mat-spinner>
-} @else { @if (error$ | async) {
+} @else 
+{ @if (error$ | async) {
 <h2>Disculpa mario, el html esta en otra base de datos</h2>
 <div
 class="d-flex align-items-center justify-content-center"
