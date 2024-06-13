@@ -2,17 +2,17 @@
   "users": [
     {
       "id": "1",
-      "name": "mario",
-      "weight": 100,
-      "lastName": "mario",
-      "email": "mariomario@gmail.com",
-      "role": "USER",
+      "name": "lorenzo",
+      "weight": "100",
+      "lastName": "fernandez",
+      "email": "lorenzo@gmail.com",
+      "role": "ADMIN",
       "createdAt": "2024-05-14T02:14:16.881Z"
     },
     {
       "id": "2",
       "name": "luigi",
-      "weight": 98,
+      "weight": "98",
       "lastName": "mario",
       "email": "luigimario@gmail.com",
       "role": "ADMIN",
@@ -21,7 +21,7 @@
     {
       "id": "3",
       "name": "fox",
-      "weight": 71,
+      "weight": "71",
       "lastName": "mcCloud",
       "email": "starfox@gmail.com",
       "role": "ADMIN",
@@ -112,11 +112,18 @@
   ],
   "inscriptions": [{
     "id": "1",
-    "name": "inscript",
-    "userId": "2",
+    "userId": "1",
     "studentId": "2",
     "cursoId": "2",
     "inscriptedAt": "2024-05-14T02:14:16.881Z"
-  }]
+  },
+  {
+    "id": "2",
+    "userId": "1",
+    "studentId": "3",
+    "cursoId": "2",
+    "inscriptedAt": "2024-05-14T02:14:16.881Z"
+  }
+]
   
 }

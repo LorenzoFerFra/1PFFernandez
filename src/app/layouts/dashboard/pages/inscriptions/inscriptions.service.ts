@@ -11,7 +11,8 @@ export class InscriptionService  {
 
 
     getInscriptions(): Observable<[IInscription]> {
-        return this.httpClient.get<[IInscription]>(environment.baseAPIURL + '/inscriptions')
+        // &_embed=user
+        return this.httpClient.get<[IInscription]>(environment.baseAPIURL + '/inscriptions?_embed=student&_embed=user&_embed=curso')
     }
     createInscription(payload:  IInscriptionsPayload): Observable<IInscription> {
         return this.httpClient.post<IInscription>(environment.baseAPIURL + '/inscriptions', payload)
