@@ -34,6 +34,7 @@ export class AuthService {
       return false;
     }
   }
+  
 
   logout(): void {
     this._authUser$.next(null);

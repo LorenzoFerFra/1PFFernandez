@@ -16,6 +16,7 @@ export const initialState: State = {
   error: null,
 };
 
+// Cargar inscripciones de db
 export const reducer = createReducer(
   initialState,
   // al cargar se cambia el estado de carga

@@ -25,6 +25,9 @@ export class StudentsService {
     );
   }
 
+  // http://localhost:4200/inscriptions?studentId=${id}&_embed=student  
+  getStudentInscriptions() {}
+
   delStudent() {}
 
   editStudent() {}

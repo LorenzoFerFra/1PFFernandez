@@ -11,20 +11,6 @@
 </div>
 } @else {
 
-<!-- <form [formGroup]="studentsForm" action="">
-  <mat-form-field>
-    <mat-label>student</mat-label>
-    <mat-select formControlName="name">
-      <mat-option [value]="student.name" *ngFor="let student of students"
-        >{{ student.name }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Alumnos</mat-label>
-  </mat-form-field>
-  <button mat-raised-button>Crear estudiante nuevo</button>
-</form> -->
 <form [formGroup]="studentsForm" action="">
   <mat-form-field>
       <mat-label>student</mat-label>
@@ -52,21 +38,15 @@
     <td mat-cell *matCellDef="let element">{{ element.name }}</td>
   </ng-container>
 
-  <!-- last name Column -->
-  <ng-container matColumnDef="lastName">
-    <th appCabecera mat-header-cell *matHeaderCellDef>Apellido</th>
-    <td mat-cell *matCellDef="let element">{{ element.profesor }}</td>
-  </ng-container>
-
   <!-- sex list Column -->
   <ng-container matColumnDef="sex">
     <th appCabecera mat-header-cell *matHeaderCellDef>Sexo</th>
     <td mat-cell *matCellDef="let element">{{ element.sex }}</td>
   </ng-container>
-  <!-- sex list Column -->
-  <ng-container matColumnDef="sex">
-    <th appCabecera mat-header-cell *matHeaderCellDef>Sexo</th>
-    <td mat-cell *matCellDef="let element">{{ element.sex }}</td>
+  <!-- prof list Column -->
+  <ng-container matColumnDef="prof">
+    <th appCabecera mat-header-cell *matHeaderCellDef>Carrea</th>
+    <td mat-cell *matCellDef="let element">{{ element.prof }}</td>
   </ng-container>
 
   <!-- Acciones de control de clases Column -->
@@ -88,6 +68,5 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
-<p>asdasdas</p>
 <pre>{{ students$ | async | json }} </pre>
 }}

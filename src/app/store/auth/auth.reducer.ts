@@ -13,7 +13,7 @@ const initialState: AuthState = {
 
 const MOCK_AUTH_USER: IUser = {
   id: "1",
-  name: 'Admin',
+  name: 'lorenzo',
   weight: 98,
   lastName: 'mario',
   email: 'lorenzo@gmail.com',
@@ -42,7 +42,7 @@ export const authReducer = createReducer(
       
       localStorage.setItem(
         'accessToken',
-        'linea de caracteres x'
+        '1'
       );
       return {
         authUser: MOCK_AUTH_USER,
